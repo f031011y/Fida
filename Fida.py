@@ -6,9 +6,12 @@ from langchain_community.document_loaders import YoutubeLoader
 from langchain_community.document_loaders import PyPDFLoader
 from langchain.prompts import ChatPromptTemplate
 from langchain_core.messages import HumanMessage, AIMessage
+from dotenv import load_dotenv 
 
 # Definindo variáveis e constantes
-api_key = ''
+
+load_dotenv()
+api_key = os.getenv("API_KEY")
 os.environ['GROQ_API_KEY'] = api_key
 chat = ChatGroq(model='llama-3.3-70b-versatile')
 
